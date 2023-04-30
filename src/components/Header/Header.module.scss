@@ -1,0 +1,69 @@
+*{
+  margin: 0;
+}
+.root{
+   background: linear-gradient(to right,rgb(143, 49, 143),rgb(113, 90, 148) );
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ @media (max-width: 1255px){
+  flex-direction: column;
+    }
+ 
+ .headerLogo{
+  margin-left: 30px;
+   
+ }
+ .headerSearch{
+  position: relative;
+  .searche{
+    position: absolute;
+    left: 15px;
+    top: 11px;
+    }
+  .clear{
+    position: absolute;
+    right: 15px;
+    top: 7px;
+  }
+
+  input{
+width: 600px;
+    height: 40px;
+    padding-left: 50px;
+    border-radius: 20px;
+    background: linear-gradient(to right,rgb(143, 49, 143),rgb(113, 90, 148) );
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    &:hover{
+      background: linear-gradient(to right,rgb(155, 90, 155),rgb(130, 116, 150) )
+    }
+  }
+ }
+ .headerInfo{
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  
+  .adress{
+    img{
+      margin-left: 20px;
+    }
+  }
+  .toComeIn{
+    img{
+      margin-left: 7px;
+    }
+  }
+  .cart{
+    img{
+      margin-left: 10px;
+    }
+  }
+  
+ }
+}

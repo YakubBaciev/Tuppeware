@@ -1,0 +1,21 @@
+.root{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+  width: 900px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid rgb(113, 90, 148);
+  span{
+    font-size: 30px;
+    color:rgb(113, 90, 148);
+  }
+  img{
+    cursor: pointer;
+  
+   
+  }
+}
