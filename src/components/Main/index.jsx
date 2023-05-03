@@ -8,22 +8,27 @@ import styles from "./Main.module.scss";
 const Main = () => {
   const [tupperware, setTupperware] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categorySelected, setCategorySelected] = React.useState(0);
+  const [colorSelected, setColorSelected] = React.useState(0);
   // const [value, setValue] = React.useState("");
-
+  console.log(categorySelected);
   React.useEffect(() => {
-    fetch("https://639c95a242e3ad6927364e55.mockapi.io/tupperware")
+    setIsLoading(true);
+    fetch(
+      `https://639c95a242e3ad6927364e55.mockapi.io/tupperware?${
+        categorySelected > 0 ? `category=${categorySelected}` : ""
+      }`
+    )
       .then((res) => res.json())
       .then((res) => {
         setTupperware(res);
         setIsLoading(false);
       });
-  }, []);
+  }, [categorySelected]);
 
   // const filterArray = tupperware.filter((item) => {
   //   return item.title.toLowerCase().includes(value.toLocaleLowerCase());
   // });
-
-  console.log(tupperware);
 
   return (
     <div className={styles.root}>
@@ -37,7 +42,12 @@ const Main = () => {
         <img width={160} height={35} src={logo} alt="logo" />
         <span>999 товаров</span>
       </div>
-      <Sort />
+      <Sort
+        categorySelected={categorySelected}
+        colorSelected={colorSelected}
+        onClickCategorySelected={(i) => setCategorySelected(i)}
+        onClickColorSelected={(i) => setColorSelected(i)}
+      />
       <div className={styles.card}>
         {isLoading
           ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
